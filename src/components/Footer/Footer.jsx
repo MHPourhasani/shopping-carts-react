@@ -11,16 +11,16 @@ import {
 } from 'react-icons/ai';
 
 const Footer = () => {
-	const [activeNav, setActiveNav] = useState('#');
+	const [activeNav, setActiveNav] = useState('home');
 
 	return (
-		<footer className='fixed bottom-0 right-0 flex h-11 w-full items-center justify-around rounded-t-lg bg-sky-500'>
+		<footer className='fixed bottom-0 right-0 flex h-11 w-full items-center justify-around rounded-t-lg bg-sky-500 sm:h-14'>
 			<NavLink
 				to='/'
 				onClick={() => setActiveNav('home')}
 				className={`flex items-center justify-center ${
 					activeNav === 'home'
-						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white'
+						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white sm:py-1.5 sm:px-3'
 						: 'opacity-60'
 				}`}>
 				{activeNav === 'home' ? <AiFillHome /> : <AiOutlineHome />}
@@ -32,7 +32,7 @@ const Footer = () => {
 				onClick={() => setActiveNav('cards')}
 				className={`flex items-center justify-center ${
 					activeNav === 'cards'
-						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white'
+						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white sm:py-1.5 sm:px-3'
 						: 'opacity-60'
 				}`}>
 				{activeNav === 'cards' ? <AiTwotoneShopping /> : <AiOutlineShopping />}
@@ -44,7 +44,7 @@ const Footer = () => {
 				onClick={() => setActiveNav('setting')}
 				className={`flex items-center justify-center ${
 					activeNav === 'setting'
-						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white'
+						? 'rounded-md bg-sky-900 px-2 py-0.5 text-white sm:py-1.5 sm:px-3'
 						: 'opacity-60'
 				}`}>
 				{activeNav === 'setting' ? <AiTwotoneSetting /> : <AiOutlineSetting />}
