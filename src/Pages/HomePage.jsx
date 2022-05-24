@@ -1,12 +1,13 @@
 import Layout from '../Layout/Layout';
+import ProductList from '../components/Products/ProductList';
 
 const HomePage = () => {
 	return (
-		<main>
-			<Layout>
-                <p>Home Page</p>
-            </Layout>
-		</main>
+		<Layout>
+			<main className='w-full pb-14'>
+				<ProductList />
+			</main>
+		</Layout>
 	);
 };
 
