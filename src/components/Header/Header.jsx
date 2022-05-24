@@ -4,7 +4,7 @@ import { HiOutlineLogin } from 'react-icons/hi';
 
 const Header = () => {
 	return (
-		<header className='flex h-11 w-full items-center justify-between bg-sky-500 px-3'>
+		<header className='flex h-11 w-full items-center justify-between bg-sky-500 px-3 sm:h-14 lg:justify-around lg:text-lg'>
 			<Link to='/' className='text-lg font-bold text-white'>
 				<p>MHP Shop</p>
 			</Link>
