@@ -11,7 +11,7 @@ const ProductListItem = ({ product }) => {
 	};
 
 	return (
-		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 px-2 py-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-3/12 lg:w-2/12'>
+		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 px-2 py-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-10/12 md:w-7/12 lg:w-1/2'>
 			<Link to='/'>
 				<img src={image} alt={name} loading='lazy' className=' h-20 w-20 rounded-md' />
 			</Link>

@@ -11,7 +11,7 @@ const ProductList = () => {
 
 	return (
 		<section className='mt-3 flex flex-col items-center justify-center sm:mt-5'>
-			<section className='my-1 flex w-10/12 items-center justify-between'>
+			<section className='my-1 flex w-10/12 items-center justify-between md:w-7/12 lg:w-1/2'>
 				<p className='text-lg font-semibold'>Products</p>
 
 				<div className='flex items-center justify-center text-lg'>
