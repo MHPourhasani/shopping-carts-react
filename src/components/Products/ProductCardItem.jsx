@@ -1,8 +1,11 @@
-import { useCardActions } from '../../Providers/CardProvider';
-import { MdAddShoppingCart } from 'react-icons/md';
+import { useCardActions, useCard } from '../../Providers/CardProvider';
+import { MdAddShoppingCart,MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
 
+import { checkInCard } from '../../utils/CheckInCard';
+
 const ProductCardItem = ({ product }) => {
+	const { card } = useCard();
 	const dispatch = useCardActions();
 	const { name, price, image, offPrice } = product;
 
@@ -20,7 +23,7 @@ const ProductCardItem = ({ product }) => {
 				<button
 					onClick={() => addProductHandler(product)}
 					className='absolute -top-4 right-2 flex h-7 w-7 items-center justify-center rounded-md bg-sky-400 text-lg text-white hover:bg-sky-500'>
-					<MdAddShoppingCart />
+					{checkInCard(card, product) ? <MdShoppingCart /> : <MdAddShoppingCart />}
 				</button>
 
 				<section className='my-1 flex flex-col items-start justify-center'>

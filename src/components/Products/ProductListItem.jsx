@@ -1,8 +1,11 @@
-import { useCardActions } from '../../Providers/CardProvider';
-import { MdAddShoppingCart } from 'react-icons/md';
-import { Link } from 'react-router-dom';
+import { useCardActions, useCard } from '../../Providers/CardProvider';
+import { MdAddShoppingCart,MdShoppingCart } from 'react-icons/md';
+import { Link } from 'react-router-dom'; 
+
+import { checkInCard } from '../../utils/CheckInCard'; 
 
 const ProductListItem = ({ product }) => {
+	const { card } = useCard();
 	const dispatch = useCardActions();
 	const { name, price, image, offPrice } = product;
 
@@ -10,10 +13,10 @@ const ProductListItem = ({ product }) => {
 		dispatch({ type: 'ADD_TO_CARD', payload: product });
 	};
 
-	return (
+		return (
 		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 px-2 py-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-10/12 md:w-7/12 lg:w-1/2'>
 			<Link to='/'>
-				<img src={image} alt={name} loading='lazy' className=' h-20 w-20 rounded-md' />
+				<img src={image} alt={name} loading='lazy' className='h-20 w-20 rounded-md' />
 			</Link>
 
 			<section className='my-1 flex flex-col items-start justify-center'>
@@ -32,7 +35,7 @@ const ProductListItem = ({ product }) => {
 			<button
 				onClick={() => addProductHandler(product)}
 				className='flex h-7 w-7 items-center justify-center rounded-md bg-sky-400 text-lg text-white hover:bg-sky-500'>
-				<MdAddShoppingCart />
+				{checkInCard(card, product) ? <MdShoppingCart /> : <MdAddShoppingCart />}
 			</button>
 		</section>
 	);
