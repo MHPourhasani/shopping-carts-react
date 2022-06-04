@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { NavLink, withRouter } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 import { useCard } from '../../Providers/CardProvider';
 
@@ -17,7 +17,7 @@ const Footer = () => {
 	const { card } = useCard();
 
 	return (
-		<footer className='fixed bottom-0 right-0 flex h-11 w-full items-center justify-around rounded-t-lg bg-sky-500 sm:h-14'>
+		<footer className='fixed bottom-0 right-0 flex h-11 w-full items-center justify-around rounded-t-lg bg-sky-500 font-semibold sm:h-14'>
 			<NavLink
 				to='/'
 				onClick={() => setActiveNav('home')}
@@ -60,4 +60,4 @@ const Footer = () => {
 	);
 };
 
-export default withRouter(Footer);
+export default Footer;
