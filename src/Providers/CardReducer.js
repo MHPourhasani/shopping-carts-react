@@ -14,7 +14,23 @@ const CardReducer = (state, action) => {
 			}
 
 			return { ...state, card: updatedCard };
-			break;
+		}
+
+		case 'DECREASE_FROM_CARD': {
+			// clone from card
+			const updatedCard = [...state.card];
+			const updatedItemIndex = updatedCard.findIndex((item) => item.id === action.payload.id);
+			const updatedItem = { ...updatedCard[updatedItemIndex] };
+
+			if (updatedItem.quantity === 1) {
+				const filterProducts = updatedCard.filter((item) => item.id !== action.payload.id);
+				return filterProducts;
+			} else {
+				updatedItem.quantity--;
+				updatedCard[updatedItemIndex] = updatedItem;
+			}
+
+			return { ...state, card: updatedCard };
 		}
 
 		default:
