@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -10,11 +10,11 @@ function App() {
 		<Router>
 			<CardProvider>
 				<ToastContainer />
-				<Switch>
+				<Routes>
 					{routes.map((route) => (
-						<Route {...route} component={route.component} key={route.path} />
+						<Route {...route} element={<route.component />} key={route.path} />
 					))}
-				</Switch>
+				</Routes>
 			</CardProvider>
 		</Router>
 	);
