@@ -4,7 +4,7 @@ import Layout from '../Layout/Layout';
 const LoginPage = () => {
 	return (
 		<Layout>
-			<section className='w-full pb-14'>
+			<section className='w-full pb-16'>
 				<Login />
 			</section>
 		</Layout>
