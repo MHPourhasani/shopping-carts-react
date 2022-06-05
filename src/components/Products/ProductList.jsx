@@ -10,7 +10,7 @@ const ProductList = () => {
 	const [typeShowProducts, setTypeShowProducts] = useState('card');
 
 	return (
-		<section className='mt-3 flex flex-col items-center justify-center sm:mt-5'>
+		<section className='mt-16 w-full flex flex-col items-center justify-center'>
 			<section className='my-1 flex w-10/12 items-center justify-between md:w-7/12 lg:w-1/2'>
 				<p className='text-lg font-semibold'>Products</p>
 
@@ -38,9 +38,9 @@ const ProductList = () => {
 				</div>
 			</section>
 
-			<section>
+			<section className='flex w-11/12 items-center justify-center'>
 				{typeShowProducts === 'card' ? (
-					<section className='flex w-full flex-wrap items-center justify-center'>
+					<section className='flex w-full flex-wrap items-center justify-start'>
 						{data.products.map((product) => {
 							return (
 								<ProductCardItem
@@ -52,7 +52,7 @@ const ProductList = () => {
 						})}
 					</section>
 				) : (
-					<section className='flex w-full flex-wrap items-center justify-center'>
+					<section className='flex w-full flex-wrap items-start justify-center'>
 						{data.products.map((product) => {
 							return (
 								<ProductListItem
