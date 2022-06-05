@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 const Signup = () => {
 	return (
-		<section className='my-5 flex w-full flex-col items-center justify-center'>
+		<section className='mt-16 flex w-full flex-col items-center justify-center'>
 			<p className='my-2 text-lg font-bold'>Sign Up</p>
 
 			<form className='flex w-full flex-col items-center justify-center'>
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1 mx-1'>Name</label>
 					<input
 						type='text'
@@ -15,7 +15,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1 mx-1'>Phone</label>
 					<input
 						type='tel'
@@ -24,7 +24,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1 mx-1'>Email</label>
 					<input
 						type='email'
@@ -33,7 +33,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1 mx-1'>Password</label>
 					<input
 						type='password'
@@ -41,7 +41,7 @@ const Signup = () => {
 					/>
 				</div>
 
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1 mx-1'>Confirm Password</label>
 					<input
 						type='password'
@@ -49,6 +49,12 @@ const Signup = () => {
 					/>
 				</div>
 			</form>
+
+			<button
+				type='submit'
+				className='my-2 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white sm:w-5/12'>
+				Sign Up
+			</button>
 
 			<Link to='/login' className='my-2 text-sm hover:text-sky-500'>
 				You did login?

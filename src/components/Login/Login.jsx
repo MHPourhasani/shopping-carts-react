@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 
 const Login = () => {
 	return (
-		<section className='my-5 flex w-full flex-col items-center justify-center'>
+		<section className='mt-16 flex w-full flex-col items-center justify-center'>
 			<p className='my-2 text-lg font-bold'>Login</p>
 
 			<form className='flex w-full flex-col items-center justify-center'>
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1'>User Name</label>
 					<input
 						type='text'
@@ -15,7 +15,7 @@ const Login = () => {
 					/>
 				</div>
 
-				<div className='flex w-5/12 flex-col items-start justify-center text-sm'>
+				<div className='flex w-10/12 max-w-xs flex-col items-start justify-center text-sm sm:w-5/12'>
 					<label className='my-1'>Password</label>
 					<input
 						type='password'
@@ -24,7 +24,7 @@ const Login = () => {
 				</div>
 			</form>
 
-			<Link to='/signup' className='my-2 text-sm'>
+			<Link to='/signup' className='my-2 text-sm hover:text-sky-500'>
 				You didn't signup?
 			</Link>
 		</section>
