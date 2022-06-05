@@ -13,7 +13,7 @@ const CardReducer = (state, action) => {
 				updatedCard[updatedItemIndex] = updatedItem;
 			}
 
-			return { ...state, card: updatedCard };
+			return { ...state, card: updatedCard, total: state.total + action.payload.offPrice };
 		}
 
 		case 'DECREASE_FROM_CARD': {
@@ -24,13 +24,17 @@ const CardReducer = (state, action) => {
 
 			if (updatedItem.quantity === 1) {
 				const filterProducts = updatedCard.filter((item) => item.id !== action.payload.id);
-				return filterProducts;
+				return {
+					...state,
+					card: filterProducts,
+					total: state.total - action.payload.offPrice,
+				};
 			} else {
 				updatedItem.quantity--;
 				updatedCard[updatedItemIndex] = updatedItem;
 			}
 
-			return { ...state, card: updatedCard };
+			return { ...state, card: updatedCard, total: state.total - action.payload.offPrice };
 		}
 
 		default:
