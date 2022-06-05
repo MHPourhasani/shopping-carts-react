@@ -3,7 +3,7 @@ import ProductCardItem from './ProductCardItem';
 import ProductListItem from './ProductListItem';
 
 import { AiOutlineUnorderedList } from 'react-icons/ai';
-import { CgCreditCard } from 'react-icons/cg';
+import { BsGrid } from 'react-icons/bs';
 import { useState } from 'react';
 
 const ProductList = () => {
@@ -17,23 +17,22 @@ const ProductList = () => {
 				<div className='flex items-center justify-center text-lg'>
 					<button
 						onClick={() => setTypeShowProducts('list')}
-						className={`mx-1.5 ${
+						className={`mx-1 w-6 h-6 flex justify-center items-center ${
 							typeShowProducts === 'list'
-								? 'rounded-md bg-sky-500 px-1 py-0.5 text-white'
+								? 'rounded-md bg-sky-500 text-white'
 								: ''
 						}`}>
-						{typeShowProducts === 'lsit' ? <AiOutlineUnorderedList /> : ''}
 						<AiOutlineUnorderedList />
 					</button>
 
 					<button
 						onClick={() => setTypeShowProducts('card')}
-						className={`mx-1.5 ${
+						className={`mx-1 w-6 h-6 flex justify-center items-center ${
 							typeShowProducts === 'card'
-								? 'rounded-md bg-sky-500 px-1 py-0.5 text-white'
+								? 'rounded-md bg-sky-500 text-white'
 								: ''
 						}`}>
-						<CgCreditCard />
+						<BsGrid />
 					</button>
 				</div>
 			</section>
