@@ -38,9 +38,9 @@ const ProductList = () => {
 				</div>
 			</section>
 
-			<section className='flex w-11/12 items-center justify-center'>
+			<section className='flex w-full items-center justify-center'>
 				{typeShowProducts === 'card' ? (
-					<section className='flex w-full flex-wrap items-center justify-start'>
+					<section className='flex w-full flex-wrap items-start justify-center'>
 						{data.products.map((product) => {
 							return (
 								<ProductCardItem
