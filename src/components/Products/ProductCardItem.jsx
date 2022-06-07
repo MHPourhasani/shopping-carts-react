@@ -1,6 +1,7 @@
 import { useCardActions, useCard } from '../../Providers/CardProvider';
 import { MdAddShoppingCart, MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { checkInCard } from '../../utils/CheckInCard';
 
@@ -11,6 +12,7 @@ const ProductCardItem = ({ product }) => {
 
 	// add products handler function
 	const addProductHandler = (product) => {
+		toast.success(`${product.name} added to carts`);
 		dispatch({ type: 'ADD_TO_CARD', payload: product });
 	};
 

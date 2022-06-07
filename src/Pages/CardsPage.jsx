@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { useCard, useCardActions } from '../Providers/CardProvider';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import Layout from '../Layout/Layout';
 import empty_cart from '../asset/image/empty_cart.png';
@@ -33,11 +34,17 @@ const CardsPage = () => {
 
 	// increase products handler function
 	const addProductHandler = (product) => {
+		toast.success(`${product.name} increased`);
 		dispatch({ type: 'ADD_TO_CARD', payload: product });
 	};
 
 	// decrease products handler function
 	const decProductHandler = (product) => {
+		if (product.quantity === 1) {
+			toast.error(`${product.name} deleted`);
+		} else {
+			toast.warn(`${product.name} decreased`);
+		}
 		dispatch({ type: 'DECREASE_FROM_CARD', payload: product });
 	};
 

@@ -1,6 +1,7 @@
 import { useCardActions, useCard } from '../../Providers/CardProvider';
 import { MdAddShoppingCart, MdShoppingCart } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 import { checkInCard } from '../../utils/CheckInCard';
 
@@ -10,12 +11,13 @@ const ProductListItem = ({ product }) => {
 	const { name, price, images, offPrice } = product;
 
 	const addProductHandler = (product) => {
+		toast.success(`${product.name} added to carts`);
 		dispatch({ type: 'ADD_TO_CARD', payload: product });
 	};
 
 	return (
 		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 px-1.5 py-1.5 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-8/12 md:w-6/12 lg:max-w-sm xl:max-w-md'>
-			<Link to='/' className='h-20 w-20 hover:opacity-75 lg:h-24 lg:w-24'>
+			<Link to={`/${name}-detail`} className='h-20 w-20 hover:opacity-75 lg:h-24 lg:w-24'>
 				<img
 					src={images[0]}
 					alt={name}
