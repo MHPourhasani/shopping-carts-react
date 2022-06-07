@@ -18,7 +18,8 @@ const ProductCardItem = ({ product }) => {
 
 	return (
 		<section className='m-1 flex w-5/12 flex-col items-start justify-between rounded-md border-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-3/12 md:w-1/5 lg:w-2/12'>
-			<Link to='/' className='hover:opacity-75'>
+			{/* pass product data */}
+			<Link to={`products/${name}`} state={{ product: product }} className='hover:opacity-75'>
 				<img
 					src={images[0]}
 					alt={name}
@@ -28,15 +29,17 @@ const ProductCardItem = ({ product }) => {
 			</Link>
 
 			<section className='relative w-full p-1.5 md:px-2.5'>
-				{/* add products btn */}
+				{/* add product to cart btn */}
 				<button
 					onClick={() => addProductHandler(product)}
 					className='absolute -top-4 right-2 flex h-8 w-8 items-center justify-center rounded-md bg-sky-400 text-lg text-white hover:bg-sky-500 md:h-9 md:w-9'>
 					{checkInCard(card, product) ? <MdShoppingCart /> : <MdAddShoppingCart />}
 				</button>
 
+				{/* show name and price and offPrice product section */}
 				<section className='my-1 flex flex-col items-start justify-center'>
-					<Link to='/'>
+					{/* pass product data */}
+					<Link to={`products/${name}`} state={{ product: product }}>
 						<p className='mb-1 font-semibold'>{name}</p>
 					</Link>
 
