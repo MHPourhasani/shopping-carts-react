@@ -8,7 +8,7 @@ import { checkInCard } from '../../utils/CheckInCard';
 const ProductCardItem = ({ product }) => {
 	const { card } = useCard();
 	const dispatch = useCardActions();
-	const { name, price, images, offPrice } = product;
+	const { name, brand, brandLogo, price, images, offPrice } = product;
 
 	// add products handler function
 	const addProductHandler = (product) => {
@@ -37,13 +37,25 @@ const ProductCardItem = ({ product }) => {
 				</button>
 
 				{/* show name and price and offPrice product section */}
-				<section className='my-1 flex flex-col items-start justify-center'>
+				<section className='flex flex-col items-start justify-center'>
 					{/* pass product data */}
 					<Link to={`products/${name}`} state={{ product: product }}>
 						<p className='mb-1 font-semibold'>{name}</p>
 					</Link>
 
-					<section className='flex items-center'>
+					<div className='my-1 flex h-5 w-auto items-center justify-start rounded-md bg-sky-100 p-1'>
+						<p className='mr-2 text-xs font-semibold'>Brand:</p>
+						<div className='flex h-5 w-auto items-center justify-center text-sm'>
+							<img
+								src={product.brandLogo}
+								alt={product.name}
+								className='mr-1 h-full'
+							/>
+							{/* <p>{product.brand}</p> */}
+						</div>
+					</div>
+
+					<section className='my-1 flex items-center'>
 						<p className='bg-gray-20 mr-2 rounded-md bg-gray-200 px-1.5 text-sm text-gray-400 line-through'>
 							$ {price}
 						</p>
