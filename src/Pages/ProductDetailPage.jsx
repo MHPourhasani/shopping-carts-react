@@ -27,7 +27,8 @@ const ProductDetailPage = () => {
 
 	return (
 		<Layout>
-			<section className='flex w-full flex-col items-center justify-center py-14 sm:pt-16 md:flex-row md:flex-wrap md:pt-20'>
+			<section className='flex w-full flex-col items-center justify-center py-14 sm:pt-16 md:flex-row md:flex-wrap md:items-start md:pt-20'>
+				{/* image slider */}
 				<div className='flex w-11/12 items-center justify-center md:mr-3 md:w-5/12 xl:max-w-lg'>
 					<Swiper
 						slidesPerView={'auto'}
@@ -35,16 +36,15 @@ const ProductDetailPage = () => {
 						pagination={{
 							clickable: true,
 						}}
-						modules={[Pagination]}
-						className='w-fit'>
+						modules={[Pagination]}>
 						<SwiperSlide className='flex items-center justify-start overflow-x-scroll'>
-							{product.images.map((image) => {
+							{product.images.map((image, index) => {
 								return (
 									<img
-										key={image}
+										key={index}
 										src={image}
 										alt={image}
-										className='mx-1 h-48 w-auto rounded-md sm:h-56 md:h-72'
+										className='mx-1 h-auto w-52 rounded-md sm:w-60 md:w-[19rem] lg:w-[22rem]'
 									/>
 								);
 							})}
@@ -52,14 +52,21 @@ const ProductDetailPage = () => {
 					</Swiper>
 				</div>
 
-				<div className='flex w-11/12 flex-col items-center justify-between md:w-6/12 xl:max-w-xl'>
+				<div className='flex w-11/12 flex-col items-start justify-between md:w-6/12 xl:max-w-xl'>
 					{/* product name and price */}
 					<section className='my-2 flex w-full items-center justify-between'>
 						<div>
-							<p className='mb-1 text-2xl font-bold lg:text-4xl'>{product.name}</p>
-							<div className='flex items-center justify-center'>
-								<p className='mr-2 text-sm font-medium lg:text-base'>brand:</p>
-								<p className='text-sm lg:text-base'> brand</p>
+							<p className='mb-2 text-2xl font-bold lg:text-4xl'>{product.name}</p>
+							<div className='flex h-5 w-auto items-center justify-start rounded-md bg-sky-100 p-1'>
+								<p className='mr-2 text-xs font-semibold lg:text-base'>Brand:</p>
+								<div className='flex h-5 w-auto items-center justify-center text-sm lg:text-base'>
+									<img
+										src={product.brandLogo}
+										alt={product.name}
+										className='mr-1 h-full'
+									/>
+									{/* <p>{product.brand}</p> */}
+								</div>
 							</div>
 						</div>
 
@@ -96,11 +103,23 @@ const ProductDetailPage = () => {
 					</section>
 
 					{/* product decreption */}
-					<div className='mt-2 w-full pb-12 text-sm font-light sm:pb-16 md:pb-2 md:text-base'>
+					<div className='my-2 w-full text-sm font-light text-gray-600 md:text-base'>
 						Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corrupti sunt
 						optio maiores, aliquid numquam nam quibusdam quaerat! Ab, assumenda magni
 						rem voluptate distinctio adipisci fugit repellat, dicta, voluptatibus
 						nostrum deleniti.
+					</div>
+
+					<div className='my-1 flex flex-wrap items-center justify-start pb-12 text-sm sm:justify-center sm:pb-14 md:pb-2'>
+						{product.descriptions.map((description) => {
+							return (
+								<p
+									key={description}
+									className='md: m-1 rounded-md bg-gray-200 px-2 py-0.5'>
+									{description.support}
+								</p>
+							);
+						})}
 					</div>
 
 					{/* add product btn */}
