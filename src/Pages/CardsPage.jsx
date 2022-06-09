@@ -51,61 +51,62 @@ const CardsPage = () => {
 	return (
 		<Layout>
 			<main className='mt-20 flex w-full flex-col items-center justify-center sm:flex-row sm:items-start'>
-				<section className='my-1 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:mr-2 sm:w-7/12 lg:w-5/12 xl:max-w-md'>
+				<section className='my-1 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:mr-2 sm:w-7/12 lg:w-6/12 xl:max-w-md'>
 					<p className='text-sm font-bold'>Your Products</p>
 
-					{card.length
-						? card.map((item) => (
-								<section
-									key={item.id}
-									className='my-2 flex items-center justify-between border-b-1 pb-4'>
-									<Link to='/' className='hover:opacity-75'>
-										<img
-											src={item.images[0]}
-											alt={item.name}
-											loading='lazy'
-											className='h-20 w-20 rounded-md'
-										/>
-									</Link>
+					{card.map((item) => (
+						<section
+							key={item.id}
+							className='my-2 flex items-center justify-between border-b-1 pb-4'>
+							{/* pass product data */}
+							<Link
+								to={`/products/${item.name}`}
+								state={{ product: item }}
+								className='hover:opacity-75'>
+								<img
+									src={item.images[0]}
+									alt={item.name}
+									loading='lazy'
+									className='h-20 w-20 rounded-md'
+								/>
+							</Link>
 
-									<section className='my-1 flex flex-col items-start justify-center p-1.5 md:px-2.5'>
-										<Link to='/'>
-											<p className='mb-1 font-semibold'>{item.name}</p>
-										</Link>
+							<section className='my-1 flex flex-col items-start justify-center p-1.5 md:px-2.5'>
+								{/* pass product data */}
+								<Link to={`/products/${item.name}`} state={{ product: item }}>
+									<p className='mb-1 font-semibold'>{item.name}</p>
+								</Link>
 
-										<div className='flex items-center'>
-											<p className='mr-2 text-sm text-gray-400 line-through'>
-												$ {item.price * item.quantity}
-											</p>
-											<p className='text-sm'>
-												$ {item.offPrice * item.quantity}
-											</p>
-										</div>
-									</section>
+								<div className='flex items-center'>
+									<p className='mr-2 text-sm text-gray-400 line-through'>
+										$ {item.price * item.quantity}
+									</p>
+									<p className='text-sm'>$ {item.offPrice * item.quantity}</p>
+								</div>
+							</section>
 
-									<section className='flex items-center justify-center'>
-										{/* increase product btn */}
-										<button
-											onClick={() => decProductHandler(item)}
-											className='mr-1 flex h-5 w-5 items-center justify-center rounded-md bg-red-50 font-semibold text-red-600'>
-											{item.quantity === 1 ? <BsTrash /> : '-'}
-										</button>
+							<section className='flex items-center justify-center'>
+								{/* increase product btn */}
+								<button
+									onClick={() => decProductHandler(item)}
+									className='mr-1 flex h-5 w-5 items-center justify-center rounded-md bg-red-50 font-semibold text-red-600'>
+									{item.quantity === 1 ? <BsTrash /> : '-'}
+								</button>
 
-										{/* products quantity btn */}
-										<button className='mx-1 flex h-5 w-5 items-center justify-center rounded-md bg-gray-100'>
-											{item.quantity}
-										</button>
+								{/* products quantity btn */}
+								<button className='mx-1 flex h-5 w-5 items-center justify-center rounded-md bg-gray-100'>
+									{item.quantity}
+								</button>
 
-										{/* decrease products btn */}
-										<button
-											onClick={() => addProductHandler(item)}
-											className='ml-1 flex h-5 w-5 items-center justify-center rounded-md bg-green-100 font-semibold text-green-600'>
-											+
-										</button>
-									</section>
-								</section>
-						  ))
-						: ''}
+								{/* decrease products btn */}
+								<button
+									onClick={() => addProductHandler(item)}
+									className='ml-1 flex h-5 w-5 items-center justify-center rounded-md bg-green-100 font-semibold text-green-600'>
+									+
+								</button>
+							</section>
+						</section>
+					))}
 				</section>
 
 				<CardSummary />
@@ -124,7 +125,7 @@ const CardSummary = () => {
 		: 0;
 
 	return (
-		<section className='mt-1 mb-16 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:w-4/12 md:ml-2 lg:w-3/12'>
+		<section className='mt-1 mb-16 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:w-4/12 md:ml-2 lg:w-4/12'>
 			<p className='text-sm font-bold'>Card Summary</p>
 
 			<section>
