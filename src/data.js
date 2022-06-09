@@ -11,98 +11,116 @@ import skacher2 from './asset/image/skacher/skacher2.jpg';
 import skacher3 from './asset/image/skacher/skacher3.jpg';
 import skacher4 from './asset/image/skacher/skacher4.jpg';
 import skacher5 from './asset/image/skacher/skacher5.jpg';
+import scacherLogo from './asset/image/scacherLogo.png';
 
 import reebok1 from './asset/image/reebok/reebok1.jpg';
 import reebok2 from './asset/image/reebok/reebok2.jpg';
 import reebok3 from './asset/image/reebok/reebok3.jpg';
+import reebokLogo from './asset/image/reebokLogo.png';
 
 import adidas1 from './asset/image/adidas/adidas1.jpg';
 import adidas2 from './asset/image/adidas/adidas2.jpg';
 import adidas3 from './asset/image/adidas/adidas3.jpg';
+import adidasLogo from './asset/image/adidasLogo.png';
 
-import eco1 from './asset/image/eco/eco1.jpg';
-import eco2 from './asset/image/eco/eco2.jpg';
-import eco3 from './asset/image/eco/eco3.jpg';
+import ecco1 from './asset/image/ecco/ecco1.jpg';
+import ecco2 from './asset/image/ecco/ecco2.jpg';
+import ecco3 from './asset/image/ecco/ecco3.jpg';
+import eccoLogo from './asset/image/eccoLogo.png';
+
+import nikeLogo from './asset/image/nikeLogo.png';
 
 export const products = [
 	{
 		id: 1,
 		name: 'Alpha',
-		description: [
-			{ support: 'گارانتی مادام العمر' },
-			{ support: 'ارسال رایگان' },
-			{ support: 'اورجینال' },
+		brand: 'Adidas',
+		brandLogo: adidasLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Free Delivery' },
+			{ support: 'Original' },
 		],
 		price: 120,
-		offPrice: 115,
-		discount: 0,
-		// image: 'https://s4.uupload.ir/files/item2_fc5s.jpg',
+		offPrice: 108,
+		discount: 12,
+		percendDiscount: 10,
 		images: [alpha1, alpha2, alpha3],
 	},
 	{
 		id: 2,
 		name: 'Jordan',
-		description: [{ support: 'گارانتی مادام العمر' }, { support: 'اورجینال' }],
+		brand: 'Nike',
+		brandLogo: nikeLogo,
+		descriptions: [{ support: 'Lifetime warranty' }, { support: 'Original' }],
 		price: 170,
-		offPrice: 160,
-		discount: 8,
-		// image: 'https://s4.uupload.ir/files/item2_fc5s.jpg',
+		offPrice: 144.5,
+		discount: 25.5,
+		percendDiscount: 15,
 		images: [jordan1, jordan2, jordan3],
 	},
 	{
 		id: 3,
 		name: 'Skacher',
-		description: [
-			{ support: 'گارانتی مادام العمر' },
-			{ support: 'اورجینال' },
-			{ support: 'ارسال رایگان' },
+		brand: 'Skacher',
+		brandLogo: scacherLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
 		],
 		price: 99,
-		offPrice: 89,
-		discount: 10,
-		// image: 'https://s4.uupload.ir/files/item3_zvc9.jpg',
+		offPrice: 82.17,
+		discount: 16.83,
+		percendDiscount: 17,
 		images: [skacher1, skacher2, skacher3, skacher4, skacher5],
 	},
 	{
 		id: 4,
 		name: 'Reebok',
-		description: [
-			{ support: 'گارانتی مادام العمر' },
-			{ support: 'اورجینال' },
-			{ support: 'ارسال رایگان' },
+		brand: 'Reebok',
+		brandLogo: reebokLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
 		],
 		price: 260,
-		offPrice: 220,
-		discount: 15,
-		// image: 'https://s4.uupload.ir/files/item4_zr94.jpg',
+		offPrice: 208,
+		discount: 52,
+		percendDiscount: 20,
 		images: [reebok1, reebok2, reebok3],
 	},
 	{
 		id: 5,
 		name: 'Adidas',
-		description: [
-			{ support: 'گارانتی مادام العمر' },
-			{ support: 'اورجینال' },
-			{ support: 'ارسال رایگان' },
+		brand: 'Adidas',
+		brandLogo: adidasLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
 		],
 		price: 150,
-		offPrice: 135,
-		discount: 0,
-		// image: 'https://s4.uupload.ir/files/item5_24ye.jpg',
+		offPrice: 114,
+		discount: 36,
+		percendDiscount: 24,
 		images: [adidas1, adidas2, adidas3],
 	},
 	{
 		id: 6,
-		name: 'eco',
-		description: [
-			{ support: 'گارانتی مادام العمر' },
-			{ support: 'اورجینال' },
-			{ support: 'ارسال رایگان' },
+		name: 'ecco',
+		brand: 'ecco',
+		brandLogo: eccoLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
 		],
 		price: 220,
-		offPrice: 200,
-		discount: 13,
-		// image: 'https://s4.uupload.ir/files/item6_7jfy.jpg',
-		images: [eco1, eco2, eco3],
+		offPrice: 209,
+		discount: 11,
+		percendDiscount: 5,
+		images: [ecco1, ecco2, ecco3],
 	},
 ];
