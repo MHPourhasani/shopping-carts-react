@@ -11,24 +11,43 @@ import skacher2 from './asset/image/skacher/skacher2.jpg';
 import skacher3 from './asset/image/skacher/skacher3.jpg';
 import skacher4 from './asset/image/skacher/skacher4.jpg';
 import skacher5 from './asset/image/skacher/skacher5.jpg';
-import scacherLogo from './asset/image/scacherLogo.png';
 
 import reebok1 from './asset/image/reebok/reebok1.jpg';
 import reebok2 from './asset/image/reebok/reebok2.jpg';
 import reebok3 from './asset/image/reebok/reebok3.jpg';
-import reebokLogo from './asset/image/reebokLogo.png';
 
 import adidas1 from './asset/image/adidas/adidas1.jpg';
 import adidas2 from './asset/image/adidas/adidas2.jpg';
 import adidas3 from './asset/image/adidas/adidas3.jpg';
-import adidasLogo from './asset/image/adidasLogo.png';
 
 import ecco1 from './asset/image/ecco/ecco1.jpg';
 import ecco2 from './asset/image/ecco/ecco2.jpg';
 import ecco3 from './asset/image/ecco/ecco3.jpg';
-import eccoLogo from './asset/image/eccoLogo.png';
 
+import calvin1 from './asset/image/calvin/calvin1.jpg';
+import calvin2 from './asset/image/calvin/calvin2.jpg';
+
+import lego1 from './asset/image/lego/lego1.jpg';
+import lego2 from './asset/image/lego/lego2.jpg';
+import lego3 from './asset/image/lego/lego3.jpg';
+import lego4 from './asset/image/lego/lego4.jpg';
+import lego5 from './asset/image/lego/lego5.jpg';
+
+import yazi1 from './asset/image/yazi/yazi1.jpg';
+import yazi2 from './asset/image/yazi/yazi2.jpg';
+import yazi3 from './asset/image/yazi/yazi3.jpg';
+
+import cayana1 from './asset/image/cayana/cayana1.jpg';
+import cayana2 from './asset/image/cayana/cayana2.jpg';
+import cayana3 from './asset/image/cayana/cayana3.jpg';
+
+import scacherLogo from './asset/image/scacherLogo.png';
+import adidasLogo from './asset/image/adidasLogo.png';
+import eccoLogo from './asset/image/eccoLogo.png';
 import nikeLogo from './asset/image/nikeLogo.png';
+import reebokLogo from './asset/image/reebokLogo.png';
+import locasteLogo from './asset/image/locasteLogo.png';
+import asicsLogo from './asset/image/asicsLogo.png';
 
 export const products = [
 	{
@@ -122,5 +141,69 @@ export const products = [
 		discount: 11,
 		percendDiscount: 5,
 		images: [ecco1, ecco2, ecco3],
+	},
+	{
+		id: 7,
+		name: 'Calvin',
+		brand: 'Lacoste',
+		brandLogo: locasteLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
+		],
+		price: 214,
+		offPrice: 115.56,
+		discount: 98.44,
+		percendDiscount: 46,
+		images: [calvin1, calvin2],
+	},
+	{
+		id: 8,
+		name: 'Lego ZX',
+		brand: 'Adidas',
+		brandLogo: adidasLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
+		],
+		price: 174,
+		offPrice: 137.46,
+		discount: 36.54,
+		percendDiscount: 24,
+		images: [lego1, lego2, lego3, lego4, lego5],
+	},
+	{
+		id: 9,
+		name: 'Yazi',
+		brand: 'Yazi',
+		brandLogo: scacherLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
+		],
+		price: 235,
+		offPrice: 192.7,
+		discount: 42.3,
+		percendDiscount: 18,
+		images: [yazi1, yazi2, yazi3],
+	},
+	{
+		id: 10,
+		name: 'Cayana 27',
+		brand: 'asics',
+		brandLogo: asicsLogo,
+		descriptions: [
+			{ support: 'Lifetime warranty' },
+			{ support: 'Original' },
+			{ support: 'Free Delivery' },
+		],
+		price: 158,
+		offPrice: 94.8,
+		discount: 63.2,
+		percendDiscount: 40,
+		images: [cayana1, cayana2, cayana3],
 	},
 ];
