@@ -8,7 +8,7 @@ import { checkInCard } from '../../utils/CheckInCard';
 const ProductCardItem = ({ product }) => {
 	const { card } = useCard();
 	const dispatch = useCardActions();
-	const { name, brand, brandLogo, price, images, offPrice } = product;
+	const { name, brandLogo, price, images, offPrice } = product;
 
 	// add products handler function
 	const addProductHandler = (product) => {
@@ -17,7 +17,7 @@ const ProductCardItem = ({ product }) => {
 	};
 
 	return (
-		<section className='m-1 flex w-5/12 flex-col items-start justify-between rounded-md border-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-3/12 md:w-1/5 lg:w-2/12'>
+		<section className='m-1 flex w-5/12 flex-col items-start justify-between rounded-md border-1 bg-white shadow-lg shadow-gray-200 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-3/12 md:w-1/5 lg:w-2/12'>
 			{/* pass product data */}
 			<Link to={`products/${name}`} state={{ product: product }} className='hover:opacity-75'>
 				<img
@@ -40,15 +40,15 @@ const ProductCardItem = ({ product }) => {
 				<section className='flex flex-col items-start justify-center'>
 					{/* pass product data */}
 					<Link to={`products/${name}`} state={{ product: product }}>
-						<p className='mb-1 font-semibold'>{name}</p>
+						<p className='mb-1 font-semibold hover:text-gray-600'>{name}</p>
 					</Link>
 
 					<div className='my-1 flex h-5 w-auto items-center justify-start rounded-md bg-sky-100 p-1'>
 						<p className='mr-2 text-xs font-semibold'>Brand:</p>
 						<div className='flex h-5 w-auto items-center justify-center text-sm'>
 							<img
-								src={product.brandLogo}
-								alt={product.name}
+								src={brandLogo}
+								alt={name}
 								className='mr-1 h-full'
 							/>
 							{/* <p>{product.brand}</p> */}

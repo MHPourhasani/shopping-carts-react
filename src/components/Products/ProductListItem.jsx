@@ -8,7 +8,7 @@ import { checkInCard } from '../../utils/CheckInCard';
 const ProductListItem = ({ product }) => {
 	const { card } = useCard();
 	const dispatch = useCardActions();
-	const { name, brand, brandLogo, price, images, offPrice } = product;
+	const { name, brandLogo, price, images, offPrice } = product;
 
 	const addProductHandler = (product) => {
 		toast.success(`${product.name} added to carts`);
@@ -16,7 +16,7 @@ const ProductListItem = ({ product }) => {
 	};
 
 	return (
-		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 px-1.5 py-1 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-8/12 md:w-6/12 lg:max-w-sm xl:max-w-md'>
+		<section className='m-1 flex w-11/12 items-center justify-between rounded-md border-1 bg-white px-1.5 py-1 shadow-sm hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-8/12 md:w-6/12 lg:max-w-sm xl:max-w-md'>
 			{/* pass product data */}
 			<Link
 				to={`products/${name}`}
@@ -35,15 +35,15 @@ const ProductListItem = ({ product }) => {
 				<section className=' w-full p-1.5 md:px-2.5'>
 					{/* pass product data */}
 					<Link to={`products/${name}`} state={{ product: product }}>
-						<p className='mb-1 font-semibold'>{name}</p>
+						<p className='mb-1 font-semibold hover:text-gray-600'>{name}</p>
 					</Link>
 
 					<div className='my-2 flex h-5 w-auto items-center justify-start rounded-md bg-sky-100 p-1'>
 						<p className='mr-2 text-xs font-semibold'>Brand:</p>
 						<div className='flex h-5 w-auto items-center justify-center text-sm'>
 							<img
-								src={product.brandLogo}
-								alt={product.name}
+								src={brandLogo}
+								alt={name}
 								className='mr-1 h-full'
 							/>
 							{/* <p>{product.brand}</p> */}
