@@ -24,6 +24,12 @@ const Login = () => {
 				</div>
 			</form>
 
+			<button
+				type='submit'
+				className='my-2 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white sm:w-5/12'>
+				Login
+			</button>
+
 			<Link to='/signup' className='my-2 text-sm hover:text-sky-500'>
 				You didn't signup?
 			</Link>
