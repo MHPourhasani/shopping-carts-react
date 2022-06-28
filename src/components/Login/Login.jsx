@@ -1,16 +1,31 @@
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Input from '../../common/Input';
+import { LoginUser } from '../../Services/loginService';
+import { toast } from 'react-toastify';
 
 const Login = () => {
+	const [errorMessage, setErrorMessage] = useState(null);
+
 	const initialValues = {
 		email: '',
 		password: '',
 	};
 
-	const onSubmit = (values) => {
-		console.log(values);
+	const onSubmit = async (values) => {
+		try {
+			const { data } = await LoginUser(values);
+			toast.success(`${data.name} You have successfully logged in`);
+			setErrorMessage(null);
+			console.log(data);
+		} catch (error) {
+			if (error.response && error.response.data.message) {
+				setErrorMessage(error.response.data.message);
+			}
+			toast.error(errorMessage);
+		}
 	};
 
 	const validationSchema = Yup.object().shape({
