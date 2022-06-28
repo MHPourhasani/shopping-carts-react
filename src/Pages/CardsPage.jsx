@@ -86,7 +86,7 @@ const CardsPage = () => {
 							</section>
 
 							<section className='flex items-center justify-center'>
-								{/* increase product btn */}
+								{/* decrease product btn */}
 								<button
 									onClick={() => decProductHandler(item)}
 									className='mr-1 flex h-5 w-5 items-center justify-center rounded-md bg-red-50 font-semibold text-red-600'>
@@ -98,7 +98,7 @@ const CardsPage = () => {
 									{item.quantity}
 								</button>
 
-								{/* decrease products btn */}
+								{/* increase products btn */}
 								<button
 									onClick={() => addProductHandler(item)}
 									className='ml-1 flex h-5 w-5 items-center justify-center rounded-md bg-green-100 font-semibold text-green-600'>
@@ -145,7 +145,7 @@ const CardSummary = () => {
 				</div>
 			</section>
 
-			<Link to='/checkout'>
+			<Link to='/signup?redirect=checkout'>
 				<button
 					type='submit'
 					className='mt-2 w-full rounded-md bg-sky-400 py-1.5 text-sm font-semibold text-white'>
