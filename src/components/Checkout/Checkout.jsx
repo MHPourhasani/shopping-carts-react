@@ -29,16 +29,16 @@ const Checkout = () => {
 
 	if (!card.length) {
 		return (
-			<main className='mt-16 flex flex-col items-center justify-center'>
+			<main className='flex min-h-screen w-full flex-col items-center justify-center'>
 				<img
 					src={empty_cart}
 					alt='empty cart'
 					loading='lazy'
-					className='w-11/12 sm:mt-10 lg:w-1/2 xl:mt-4'
+					className='w-11/12 md:w-9/12 lg:w-7/12 xl:mt-4'
 				/>
 				<Link
 					to='/'
-					className='mt-7 flex h-10 w-10/12 items-center justify-center rounded-md bg-sky-400 font-sans text-white'>
+					className='mt-7 flex h-10 w-10/12 lg:w-7/12 items-center justify-center rounded-md bg-sky-400 font-sans text-white'>
 					Go to Shopping
 				</Link>
 			</main>
@@ -49,7 +49,7 @@ const Checkout = () => {
 		<main className='my-16 flex w-full flex-col items-center justify-center sm:my-20'>
 			{auth ? (
 				<section className='flex w-full flex-col items-center justify-center sm:flex-row sm:items-start'>
-					<section className='my-1.5 w-11/12 rounded-lg bg-white p-3 shadow-sm sm:my-0 sm:mr-1 sm:w-6/12 lg:w-5/12 xl:max-w-md'>
+					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:mr-2 sm:w-6/12 lg:w-5/12 xl:max-w-md'>
 						<p className='text-lg font-bold'>Your Orders</p>
 
 						{card &&
@@ -79,19 +79,19 @@ const Checkout = () => {
 											{/* decrease product btn */}
 											<button
 												onClick={() => decProductHandler(cart)}
-												className='mr-1 flex h-6 w-6 items-center justify-center rounded-md bg-red-50 font-semibold text-red-600'>
+												className='mr-1 flex h-6 w-6 items-center justify-center rounded-md bg-red-50 font-semibold text-red-600 shadow-md'>
 												{cart.quantity === 1 ? <BsTrash /> : '-'}
 											</button>
 
 											{/* products quantity btn */}
-											<span className='mx-1 flex h-6 w-6 items-center justify-center rounded-md bg-gray-100'>
+											<span className='mx-1 flex h-6 w-6 items-center justify-center rounded-md bg-gray-100 shadow-md'>
 												{cart.quantity}
 											</span>
 
 											{/* increase products btn */}
 											<button
 												onClick={() => addProductHandler(cart)}
-												className='ml-1 flex h-6 w-6 items-center justify-center rounded-md bg-green-100 font-semibold text-green-600'>
+												className='ml-1 flex h-6 w-6 items-center justify-center rounded-md bg-green-100 font-semibold text-green-600 shadow-md'>
 												+
 											</button>
 										</div>
@@ -100,7 +100,7 @@ const Checkout = () => {
 							})}
 					</section>
 
-					<section className='my-1.5 w-11/12 rounded-lg bg-white p-3 shadow-sm sm:my-0 sm:ml-1 sm:w-5/12 lg:w-72 xl:max-w-sm'>
+					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:ml-2 sm:w-5/12 lg:w-72 xl:max-w-sm'>
 						<p className='mb-2 text-lg font-bold lg:text-xl'>Your Information</p>
 
 						<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
