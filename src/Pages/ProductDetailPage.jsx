@@ -27,7 +27,7 @@ const ProductDetailPage = () => {
 
 	return (
 		<Layout>
-			<section className='flex w-full flex-col items-center justify-center py-14 sm:pt-16 md:flex-row md:flex-wrap md:items-start md:pt-20'>
+			<section className='flex w-full flex-col items-center justify-center py-16 sm:pt-16 md:flex-row md:flex-wrap md:items-start md:pt-20'>
 				{/* image slider */}
 				<div className='flex w-11/12 items-center justify-center md:mr-3 md:w-5/12 xl:max-w-lg'>
 					<Swiper
@@ -65,7 +65,6 @@ const ProductDetailPage = () => {
 										alt={product.name}
 										className='mr-1 h-full'
 									/>
-									{/* <p>{product.brand}</p> */}
 								</div>
 							</div>
 						</div>
@@ -126,7 +125,7 @@ const ProductDetailPage = () => {
 					<button
 						type='submit'
 						onClick={() => addProductHandler(product)}
-						className='fixed bottom-12 my-2 h-9 w-11/12 rounded-md bg-sky-400 text-white hover:bg-sky-500 sm:bottom-14 md:static md:h-10 md:w-full lg:h-11'>
+						className='fixed bottom-14 my-2 h-9 w-11/12 rounded-md bg-sky-400 text-white hover:bg-sky-500 sm:bottom-14 md:static md:h-10 md:w-full lg:h-11'>
 						{checkInCard(card, product) ? (
 							<Link
 								to='/cards'
