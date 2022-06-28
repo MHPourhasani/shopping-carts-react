@@ -1,13 +1,26 @@
-import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Input from '../../common/Input';
 import { LoginUser } from '../../Services/loginService';
 import { toast } from 'react-toastify';
+import { useAuth, useAuthActions } from '../../Providers/AuthProvider';
+import { useQuery } from '../../hooks/useQuery';
 
 const Login = () => {
 	const [errorMessage, setErrorMessage] = useState(null);
+
+	const auth = useAuth();
+	const setAuth = useAuthActions();
+
+	const navigate = useNavigate();
+	const query = useQuery();
+	const redirect = query.get('redirect') || '';
+
+	useEffect(() => {
+		if (auth) navigate(`/${redirect}`);
+	}, [auth, navigate, redirect]);
 
 	const initialValues = {
 		email: '',
@@ -18,8 +31,9 @@ const Login = () => {
 		try {
 			const { data } = await LoginUser(values);
 			toast.success(`${data.name} You have successfully logged in`);
+			setAuth(data);
 			setErrorMessage(null);
-			console.log(data);
+			navigate(`/${redirect}`);
 		} catch (error) {
 			if (error.response && error.response.data.message) {
 				setErrorMessage(error.response.data.message);
@@ -61,7 +75,7 @@ const Login = () => {
 				</button>
 			</form>
 
-			<Link to='/signup' className='my-2 text-sm hover:text-sky-500'>
+			<Link to={`/signup?redirect=${redirect}`} className='my-2 text-sm hover:text-sky-500'>
 				You didn't signup?
 			</Link>
 		</section>
