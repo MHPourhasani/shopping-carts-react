@@ -2,8 +2,13 @@ import { Link } from 'react-router-dom';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import Input from '../../common/Input';
+import { SignupUser } from '../../Services/signupService';
+import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const Signup = () => {
+	const [errorMessage, setErrorMessage] = useState(null);
+
 	const initialValues = {
 		name: '',
 		phoneNumber: '',
@@ -12,8 +17,20 @@ const Signup = () => {
 		passwordConfirm: '',
 	};
 
-	const onSubmit = (values) => {
-		console.log(values);
+	const onSubmit = async (values) => {
+		const { name, phoneNumber, email, password } = values;
+		const userData = { name, phoneNumber, email, password };
+
+		try {
+			const { data } = await SignupUser(userData);
+			console.log(data);
+		} catch (error) {
+			if (error.response && error.response.data.message) {
+				setErrorMessage(error.response.data.message);
+			}
+			toast.error(errorMessage);
+		}
+		// console.log(values);
 	};
 
 	const validationSchema = Yup.object().shape({
@@ -22,7 +39,7 @@ const Signup = () => {
 		email: Yup.string().email('Invalid email address format').required('Email is required'),
 
 		password: Yup.string()
-			.min(8, 'Password must be 8 characters at minimum')
+			// .min(8, 'Password must be 8 characters at minimum')
 			.required('Password is required'),
 
 		passwordConfirm: Yup.string()
@@ -52,7 +69,7 @@ const Signup = () => {
 					lable='Phone Number'
 					type='tel'
 					name='phoneNumber'
-					placeholder='example: Mohammad Hasan Pourhasani'
+					placeholder='09xxxxxxxxx'
 					formik={formik}
 				/>
 
