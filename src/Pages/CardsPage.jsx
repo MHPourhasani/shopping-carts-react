@@ -15,16 +15,16 @@ const CardsPage = () => {
 	if (!card.length) {
 		return (
 			<Layout>
-				<main className='mt-16 flex flex-col items-center justify-center'>
+				<main className='flex min-h-screen w-full flex-col items-center justify-center'>
 					<img
 						src={empty_cart}
 						alt='empty cart image'
 						loading='lazy'
-						className='w-9/12 sm:mt-10 lg:w-1/2 xl:mt-4'
+						className='w-11/12 md:w-9/12 lg:w-7/12 xl:max-w-3xl'
 					/>
 					<Link
 						to='/'
-						className='mt-7 rounded-md bg-sky-400 px-3 py-1.5 font-sans text-white'>
+						className='mt-7 flex w-11/12 items-center justify-center rounded-md bg-sky-400 py-2 font-sans text-white md:w-9/12 lg:w-7/12 lg:py-2.5 xl:max-w-3xl'>
 						Go to Shopping
 					</Link>
 				</main>
