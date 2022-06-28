@@ -23,6 +23,8 @@ const Signup = () => {
 
 		try {
 			const { data } = await SignupUser(userData);
+			toast.success(`${data.name} Registration completed successfully`);
+			setErrorMessage(null);
 			console.log(data);
 		} catch (error) {
 			if (error.response && error.response.data.message) {
@@ -30,16 +32,15 @@ const Signup = () => {
 			}
 			toast.error(errorMessage);
 		}
-		// console.log(values);
 	};
 
 	const validationSchema = Yup.object().shape({
-		name: Yup.string().required('Name is required'),
+		name: Yup.string().required('Name is required').min(6),
 		phoneNumber: Yup.string().required('Phone Number is required').min(11).nullable(),
 		email: Yup.string().email('Invalid email address format').required('Email is required'),
 
 		password: Yup.string()
-			// .min(8, 'Password must be 8 characters at minimum')
+			.min(8, 'Password must be 8 characters at minimum')
 			.required('Password is required'),
 
 		passwordConfirm: Yup.string()
