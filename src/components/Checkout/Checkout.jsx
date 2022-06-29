@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import empty_cart from '../../asset/image/empty_cart.png';
 
 const Checkout = () => {
-	const { card } = useCard();
+	const { card, total } = useCard();
 	const auth = useAuth();
 	const dispatch = useCardActions();
 
@@ -27,6 +27,10 @@ const Checkout = () => {
 		dispatch({ type: 'DECREASE_FROM_CARD', payload: product });
 	};
 
+	const originalTotalPrice = card.length
+		? card.reduce((acc, curr) => acc + curr.quantity * curr.price, 0)
+		: 0;
+
 	if (!card.length) {
 		return (
 			<main className='flex min-h-screen w-full flex-col items-center justify-center'>
@@ -38,7 +42,7 @@ const Checkout = () => {
 				/>
 				<Link
 					to='/'
-					className='mt-7 flex h-10 w-10/12 lg:w-7/12 items-center justify-center rounded-md bg-sky-400 font-sans text-white'>
+					className='mt-7 flex h-10 w-10/12 items-center justify-center rounded-md bg-sky-400 font-sans text-white lg:w-7/12'>
 					Go to Shopping
 				</Link>
 			</main>
@@ -49,8 +53,8 @@ const Checkout = () => {
 		<main className='my-16 flex w-full flex-col items-center justify-center sm:my-20'>
 			{auth ? (
 				<section className='flex w-full flex-col items-center justify-center sm:flex-row sm:items-start'>
-					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:mr-2 sm:w-6/12 lg:w-5/12 xl:max-w-md'>
-						<p className='text-lg font-bold'>Your Orders</p>
+					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:mr-1 sm:w-6/12 md:w-7/12 lg:w-6/12 xl:max-w-lg'>
+						<p className='text-lg font-bold sm:text-base lg:text-lg'>Your Orders</p>
 
 						{card &&
 							card.map((cart) => {
@@ -100,27 +104,54 @@ const Checkout = () => {
 							})}
 					</section>
 
-					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:ml-2 sm:w-5/12 lg:w-72 xl:max-w-sm'>
-						<p className='mb-2 text-lg font-bold lg:text-xl'>Your Information</p>
+					<section className='my-1.5 w-11/12 rounded-lg border-2 border-sky-500 bg-white p-3 shadow-sm sm:my-0 sm:ml-1 sm:w-5/12 md:w-4/12 lg:w-64 xl:max-w-sm'>
+						<div className='border-b-1 border-gray-400'>
+							<p className='mb-2 text-lg font-bold sm:text-base lg:text-lg'>
+								Your Information
+							</p>
 
-						<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
-							<p className='font-semibold'>Name:</p>
-							<p className='ml-2 font-medium'>{auth.name}</p>
+							<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
+								<p className='font-semibold'>Name:</p>
+								<p className='ml-2 font-medium'>{auth.name}</p>
+							</div>
+
+							<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
+								<p className='font-semibold'>Phone Number:</p>
+								<p className='ml-2 font-medium'>{auth.phoneNumber}</p>
+							</div>
+
+							<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
+								<p className='font-semibold'>Email:</p>
+								<p className='ml-2 font-medium'>{auth.email}</p>
+							</div>
 						</div>
 
-						<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
-							<p className='font-semibold'>Phone Number:</p>
-							<p className='ml-2 font-medium'>{auth.phoneNumber}</p>
-						</div>
+						<div className='my-1.5'>
+							<p className='mb-2 text-lg font-bold sm:text-base lg:text-lg'>
+								Cart Summary
+							</p>
 
-						<div className='my-1.5 flex items-center justify-start text-sm lg:text-base'>
-							<p className='font-semibold'>Email:</p>
-							<p className='ml-2 font-medium'>{auth.email}</p>
-						</div>
+							<section>
+								<div className='my-2 flex items-center justify-between text-sm'>
+									<p className='font-semibold'>Total Price</p>
+									<p className='font-medium'>$ {originalTotalPrice}</p>
+								</div>
 
-						<button className='mt-2 w-full rounded-md bg-sky-400 py-1 text-lg font-semibold text-white'>
-							Pay
-						</button>
+								<div className='my-2 flex items-center justify-between text-sm'>
+									<p className='font-semibold'>Off Price</p>
+									<p className='font-medium'>$ {originalTotalPrice - total}</p>
+								</div>
+
+								<div className='my-2 flex items-center justify-between text-sm'>
+									<p className='font-semibold'>Net Price</p>
+									<p className='font-medium'>$ {total}</p>
+								</div>
+							</section>
+
+							<button className='mt-2 w-full rounded-md bg-sky-400 py-1.5 text-lg font-semibold text-white shadow-sm'>
+								Pay
+							</button>
+						</div>
 					</section>
 				</section>
 			) : (
