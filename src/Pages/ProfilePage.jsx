@@ -6,7 +6,7 @@ const ProfilePage = () => {
 
 	return (
 		<Layout>
-			<section className='mt-14 flex w-full flex-col items-start justify-center bg-sky-100 p-8 sm:mt-16'>
+			<section className='flex min-h-screen w-full flex-col items-start justify-center bg-sky-100 px-8 sm:px-32 md:px-52 lg:px-80 xl:px-96'>
 				<div className='my-1'>
 					<span className='font-semibold'>Name: </span>
 					<span className='font-medium'>{userData.name}</span>
@@ -22,8 +22,8 @@ const ProfilePage = () => {
 					<span className='font-medium'>{userData.email}</span>
 				</div>
 
-				<button className='my-2 w-full rounded-md border-1 text-red-500 border-red-500 py-1 hover:bg-red-50'>
-					Delete My Account
+				<button className='my-2 w-full rounded-md border-1 border-red-500 py-1 text-red-500 hover:bg-red-50'>
+					Logout
 				</button>
 			</section>
 		</Layout>
