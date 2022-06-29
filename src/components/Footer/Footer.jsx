@@ -36,7 +36,7 @@ const Footer = () => {
 				className={({ isActive }) =>
 					isActive
 						? 'relative flex items-center justify-center rounded-md bg-sky-900 px-2 py-1.5 text-white sm:py-1.5 sm:px-3'
-						: 'relative flex items-center justify-center opacity-60'
+						: 'relative flex items-center justify-center px-2 py-1.5 opacity-60'
 				}>
 				{activeNav === 'cartsPage' ? <AiTwotoneShopping /> : <AiOutlineShopping />}
 				<p className='ml-1.5 text-sm'>Carts</p>
