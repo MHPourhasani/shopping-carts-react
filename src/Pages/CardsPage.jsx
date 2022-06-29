@@ -9,7 +9,7 @@ import empty_cart from '../asset/image/empty_cart.png';
 import { BsTrash } from 'react-icons/bs';
 
 const CardsPage = () => {
-	const { card, total } = useCard();
+	const { card } = useCard();
 	const dispatch = useCardActions();
 
 	if (!card.length) {
@@ -125,7 +125,7 @@ const CardSummary = () => {
 		: 0;
 
 	return (
-		<section className='mt-1 mb-16 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:w-4/12 md:ml-2 lg:w-4/12'>
+		<section className='mt-1 mb-16 w-11/12 rounded-md border-2 border-sky-500 p-3 drop-shadow-md sm:w-4/12 md:ml-2 lg:w-4/12 xl:max-w-2xl'>
 			<p className='text-sm font-bold'>Card Summary</p>
 
 			<section>
@@ -148,7 +148,7 @@ const CardSummary = () => {
 			<Link to='/signup?redirect=checkout'>
 				<button
 					type='submit'
-					className='mt-2 w-full rounded-md bg-sky-400 py-1.5 text-sm font-semibold text-white'>
+					className='mt-2 w-full rounded-md bg-sky-400 py-2.5 text-sm font-semibold text-white shadow-sm'>
 					Checkout
 				</button>
 			</Link>
