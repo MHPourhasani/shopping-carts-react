@@ -65,8 +65,8 @@ const Signup = () => {
 	const formik = useFormik({ initialValues, onSubmit, validationSchema, validateOnMount: true });
 
 	return (
-		<section className='mt-16 flex w-full flex-col items-center justify-center'>
-			<p className='my-2 text-lg font-bold'>Sign Up</p>
+		<section className='flex h-auto w-full flex-col items-center justify-center bg-sky-100 pt-4 pb-20 sm:pt-8 md:py-10 md:pt-7 lg:overflow-hidden xl:h-screen'>
+			<p className='mb-3 text-3xl font-bold sm:mt-3'>Sign Up</p>
 
 			<form
 				onSubmit={formik.handleSubmit}
@@ -75,7 +75,7 @@ const Signup = () => {
 				<Input
 					lable='Name'
 					name='name'
-					placeholder='example: Mohammad Hasan Pourhasani'
+					placeholder='Mohammad Hasan Pourhasani'
 					formik={formik}
 				/>
 
@@ -110,7 +110,7 @@ const Signup = () => {
 				<button
 					type='submit'
 					disabled={!formik.isValid}
-					className='my-2 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white disabled:bg-sky-200 sm:w-5/12'>
+					className='my-2 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white disabled:bg-sky-200'>
 					Sign Up
 				</button>
 			</form>
