@@ -51,7 +51,7 @@ const Login = () => {
 
 	return (
 		<section className='flex h-auto w-full flex-col items-center justify-center bg-sky-100 pt-4 pb-20 sm:h-screen sm:pt-8 md:py-10'>
-			<p className='my-2 text-lg font-bold'>Login</p>
+			<p className='my-2 text-3xl font-bold'>Login</p>
 
 			<form
 				onSubmit={formik.handleSubmit}
