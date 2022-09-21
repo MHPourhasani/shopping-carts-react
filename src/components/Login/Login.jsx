@@ -50,7 +50,7 @@ const Login = () => {
 	const formik = useFormik({ initialValues, onSubmit, validationSchema, validateOnMount: true });
 
 	return (
-		<section className='mt-16 flex w-full flex-col items-center justify-center'>
+		<section className='flex h-auto w-full flex-col items-center justify-center bg-sky-100 pt-4 pb-20 sm:h-screen sm:pt-8 md:py-10'>
 			<p className='my-2 text-lg font-bold'>Login</p>
 
 			<form
@@ -70,7 +70,7 @@ const Login = () => {
 				<button
 					type='submit'
 					disabled={!formik.isValid}
-					className='my-3 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white disabled:bg-sky-200 sm:w-5/12'>
+					className='my-3 w-10/12 max-w-xs rounded-md bg-sky-400 py-1.5 text-white disabled:bg-sky-200'>
 					Login
 				</button>
 			</form>
