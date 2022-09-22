@@ -4,11 +4,15 @@ import { checkInCard } from '../utils/CheckInCard';
 
 import { toast } from 'react-toastify';
 import { Link, useLocation } from 'react-router-dom';
+
+// Swiper React
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Pagination, Navigation } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/pagination';
-import { Pagination } from 'swiper';
+import 'swiper/css/navigation';
 
+// icons
 import { MdAddShoppingCart } from 'react-icons/md';
 import { AiTwotoneShopping } from 'react-icons/ai';
 
@@ -27,28 +31,34 @@ const ProductDetailPage = () => {
 
 	return (
 		<Layout>
-			<section className='flex w-full flex-col items-center justify-center py-16 sm:pt-16 md:flex-row md:flex-wrap md:items-start md:pt-20'>
+			<section className='flex w-full flex-col items-center justify-center gap-3 py-16 sm:pt-16 md:flex-row md:items-start md:gap-5 md:pt-20'>
 				{/* image slider */}
-				<div className='flex w-11/12 items-center justify-center md:mr-3 md:w-5/12 xl:max-w-lg'>
+				<div className='flex w-11/12 items-center justify-center md:w-5/12 xl:max-w-lg'>
 					<Swiper
-						slidesPerView={'auto'}
+						slidesPerView={1}
 						spaceBetween={30}
+						loop={true}
 						pagination={{
 							clickable: true,
 						}}
-						modules={[Pagination]}>
-						<SwiperSlide className='flex items-center justify-start overflow-x-scroll'>
-							{product.images.map((image, index) => {
-								return (
+						breakpoints={{
+							640: { slidesPerView: 2, spaceBetween: 10 },
+							768: { slidesPerView: 1, spaceBetween: 0 },
+						}}
+						navigation={true}
+						modules={[Pagination, Navigation]}>
+						{product.images.map((image, index) => {
+							return (
+								<SwiperSlide className='flex items-center justify-start'>
 									<img
 										key={index}
 										src={image}
 										alt={image}
-										className='mx-1 h-auto w-52 rounded-md sm:w-60 md:w-[19rem] lg:w-[22rem]'
+										className='h-full w-full rounded-md '
 									/>
-								);
-							})}
-						</SwiperSlide>
+								</SwiperSlide>
+							);
+						})}
 					</Swiper>
 				</div>
 
@@ -80,12 +90,12 @@ const ProductDetailPage = () => {
 					</section>
 
 					{/* product size */}
-					<section className='my-1 flex w-full items-center justify-start'>
+					<section className='my-1 flex w-full flex-wrap items-center justify-start gap-1.5'>
 						{product.sizes.map((size) => {
 							return (
 								<span
 									key={size}
-									className='mr-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
+									className='flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 lg:h-11 lg:w-11'>
 									{size}
 								</span>
 							);
