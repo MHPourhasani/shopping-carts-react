@@ -81,24 +81,15 @@ const ProductDetailPage = () => {
 
 					{/* product size */}
 					<section className='my-1 flex w-full items-center justify-start'>
-						<span className='mr-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							40
-						</span>
-						<span className='mx-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							41
-						</span>
-						<span className='mx-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							42
-						</span>
-						<span className='mx-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							43
-						</span>
-						<span className='mx-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							44
-						</span>
-						<span className='ml-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
-							45
-						</span>
+						{product.sizes.map((size) => {
+							return (
+								<span
+									key={size}
+									className='mr-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-md bg-gray-200 shadow-sm hover:bg-gray-300 md:h-11 md:w-11'>
+									{size}
+								</span>
+							);
+						})}
 					</section>
 
 					{/* product decreption */}
@@ -110,12 +101,12 @@ const ProductDetailPage = () => {
 					</div>
 
 					<div className='my-1 flex flex-wrap items-center justify-start pb-12 text-sm sm:justify-center sm:pb-14 md:pb-2'>
-						{product.descriptions.map((description) => {
+						{product.services.map((service) => {
 							return (
 								<p
-									key={description}
+									key={service}
 									className='md: m-1 rounded-md bg-gray-200 px-2 py-0.5'>
-									{description.support}
+									{service}
 								</p>
 							);
 						})}
