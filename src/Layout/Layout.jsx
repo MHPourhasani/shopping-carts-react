@@ -1,13 +1,13 @@
 import Header from '../components/Header/Header';
-import Footer from '../components/Footer/Footer';
+import Navbar from '../components/Navbar/Navbar';
 
 const Layout = ({ children }) => {
 	return (
-		<>
+		<section className='flex h-auto w-full flex-col items-center justify-center'>
 			<Header />
 			{children}
-			<Footer />
-		</>
+			<Navbar />
+		</section>
 	);
 };
 
