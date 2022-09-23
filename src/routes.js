@@ -1,5 +1,5 @@
 import LoginPage from './Pages/LoginPage';
-import CardsPage from './Pages/CardsPage';
+import CartsPage from './Pages/CartsPage';
 import HomePage from './Pages/HomePage';
 import SignupPage from './Pages/SignupPage';
 import SettingPage from './Pages/SettingPage';
@@ -12,7 +12,7 @@ const routes = [
 	{ path: '/setting', component: SettingPage },
 	{ path: '/login', component: LoginPage },
 	{ path: '/signup', component: SignupPage },
-	{ path: '/cards', component: CardsPage },
+	{ path: '/carts', component: CartsPage },
 	{ path: '/profile', component: ProfilePage },
 	{ path: '/checkout', component: CheckoutPage },
 	{ path: '/', component: HomePage },
