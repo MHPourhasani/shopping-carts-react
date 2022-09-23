@@ -10,14 +10,14 @@ const ProductList = () => {
 	const [typeShowProducts, setTypeShowProducts] = useState('card');
 
 	return (
-		<section className='mt-14 flex w-full flex-col items-center justify-center sm:mt-16'>
+		<section className='mt-14 mb-8 flex w-full flex-col items-center justify-center sm:mt-16 md:mb-0'>
 			<section className='my-1 flex w-11/12 items-center justify-between sm:w-8/12 md:w-6/12 lg:w-1/2'>
 				<p className='text-lg font-semibold lg:font-bold'>Products</p>
 
-				<div className='flex items-center justify-center text-lg'>
+				<div className='flex items-center justify-center gap-1 text-lg'>
 					<button
 						onClick={() => setTypeShowProducts('list')}
-						className={`mr-1 flex h-6 w-6 items-center justify-center rounded-md hover:bg-sky-300 md:h-8 md:w-8 lg:h-8 lg:w-8 ${
+						className={`flex h-7 w-7 items-center justify-center rounded-md hover:bg-sky-300 md:h-8 md:w-8 lg:h-8 lg:w-8 ${
 							typeShowProducts === 'list' ? 'bg-sky-500 text-white' : ''
 						}`}>
 						<AiOutlineUnorderedList />
@@ -25,7 +25,7 @@ const ProductList = () => {
 
 					<button
 						onClick={() => setTypeShowProducts('card')}
-						className={`ml-1 flex h-6 w-6 items-center justify-center rounded-md hover:bg-sky-300 md:h-8 md:w-8 lg:h-8 lg:w-8 ${
+						className={`flex h-7 w-7 items-center justify-center rounded-md hover:bg-sky-300 md:h-8 md:w-8 lg:h-8 lg:w-8 ${
 							typeShowProducts === 'card' ? 'bg-sky-500 text-white' : ''
 						}`}>
 						<BsGrid />
@@ -35,7 +35,7 @@ const ProductList = () => {
 
 			<section className='flex w-full items-center justify-center'>
 				{typeShowProducts === 'card' ? (
-					<section className='flex w-full flex-wrap items-stretch justify-center'>
+					<section className='flex w-full flex-wrap items-stretch justify-center gap-2 sm:gap-4'>
 						{data.products.map((product) => {
 							return (
 								<ProductCardItem
@@ -47,7 +47,7 @@ const ProductList = () => {
 						})}
 					</section>
 				) : (
-					<section className='flex w-full flex-wrap items-start justify-center'>
+					<section className='flex w-full flex-wrap items-start justify-center gap-2 sm:gap-4'>
 						{data.products.map((product) => {
 							return (
 								<ProductListItem

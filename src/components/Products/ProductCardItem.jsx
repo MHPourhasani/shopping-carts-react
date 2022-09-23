@@ -17,9 +17,9 @@ const ProductCardItem = ({ product }) => {
 	};
 
 	return (
-		<section className='m-1 flex w-5/12 flex-col items-start justify-between rounded-md border-1 bg-white shadow-lg shadow-gray-200 hover:border-sky-500 hover:drop-shadow-xl sm:m-2 sm:w-3/12 md:w-1/5 lg:w-2/12'>
-			{/* pass product data */}
-			<Link to={`products/${name}`} state={{ product: product }} className='hover:opacity-75'>
+		<section className='flex w-5/12 flex-col items-start justify-between rounded-md border-1 bg-white shadow-lg shadow-gray-200 hover:scale-105 hover:border-sky-500 hover:drop-shadow-xl sm:w-3/12 md:w-1/5 lg:w-2/12'>
+			{/* image of product and pass product data */}
+			<Link to={`products/${name}`} state={{ product: product }} className='hover:opacity-80'>
 				<img
 					src={images[0]}
 					alt={name}
@@ -38,23 +38,20 @@ const ProductCardItem = ({ product }) => {
 
 				{/* show name and price and offPrice product section */}
 				<section className='flex flex-col items-start justify-center'>
-					{/* pass product data */}
+					{/* name of product and pass product data */}
 					<Link to={`products/${name}`} state={{ product: product }}>
 						<p className='mb-1 font-semibold hover:text-gray-600'>{name}</p>
 					</Link>
 
+					{/* show brand of product */}
 					<div className='my-1 flex h-5 w-auto items-center justify-start rounded-md bg-sky-100 p-1'>
 						<p className='mr-2 text-xs font-semibold'>Brand:</p>
 						<div className='flex h-5 w-auto items-center justify-center text-sm'>
-							<img
-								src={brandLogo}
-								alt={name}
-								className='mr-1 h-full'
-							/>
-							{/* <p>{product.brand}</p> */}
+							<img src={brandLogo} alt={name} className='mr-1 h-full' />
 						</div>
 					</div>
 
+					{/* show price and off price of product */}
 					<section className='my-1 flex items-center'>
 						<p className='bg-gray-20 mr-2 rounded-md bg-gray-200 px-1.5 text-sm text-gray-400 line-through'>
 							$ {price}
