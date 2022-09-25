@@ -39,7 +39,6 @@ const Signup = () => {
 			toast.success(`${data.name} Registration completed successfully`);
 			setAuth(data);
 			setErrorMessage(null);
-			navigate(`/${redirect}`);
 		} catch (error) {
 			if (error.response && error.response.data.message) {
 				setErrorMessage(error.response.data.message);

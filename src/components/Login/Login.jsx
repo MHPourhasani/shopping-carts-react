@@ -33,7 +33,6 @@ const Login = () => {
 			toast.success(`${data.name} You have successfully logged in`);
 			setAuth(data);
 			setErrorMessage(null);
-			navigate(`/${redirect}`);
 		} catch (error) {
 			if (error.response && error.response.data.message) {
 				setErrorMessage(error.response.data.message);
