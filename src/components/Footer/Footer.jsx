@@ -1,61 +1,33 @@
-import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-
-import { useCard } from '../../Providers/CardProvider';
-
-import {
-	AiOutlineHome,
-	AiFillHome,
-	AiOutlineShopping,
-	AiTwotoneShopping,
-	AiOutlineSetting,
-	AiTwotoneSetting,
-} from 'react-icons/ai';
+// icons
+import { AiOutlineCopyrightCircle } from 'react-icons/ai';
+import { BsArrowUpSquare } from 'react-icons/bs';
 
 const Footer = () => {
-	const [activeNav, setActiveNav] = useState('home');
-	const { card } = useCard();
+	// goToTop function to go to the top of the page
+	const goToTop = () => {
+		window.scrollTo({ top: 0, behavior: 'smooth' });
+	};
 
 	return (
-		<footer className='fixed bottom-0 right-0 flex h-14 w-full items-center justify-around rounded-t-lg bg-sky-500 font-semibold sm:h-14'>
-			<NavLink
-				to='/'
-				onClick={() => setActiveNav('home')}
-				className={({ isActive }) =>
-					isActive
-						? 'flex items-center justify-center rounded-md bg-sky-900 px-2 py-1.5 text-white sm:py-1.5 sm:px-3'
-						: 'flex items-center justify-center opacity-60'
-				}>
-				{activeNav === 'home' ? <AiFillHome /> : <AiOutlineHome />}
-				<p className='ml-1.5 text-sm'>Home</p>
-			</NavLink>
+		<footer className='mt-5 flex h-48 w-full flex-col items-center justify-start gap-4 bg-sky-500 px-2 py-3 sm:h-36 sm:flex-row sm:items-start sm:justify-between sm:p-5 md:fixed md:bottom-0 md:h-16 md:items-center xl:h-14'>
+			{/* copyright section */}
+			<section className='flex flex-col items-center gap-1 sm:flex-row'>
+				<AiOutlineCopyrightCircle className='hidden h-auto w-5 text-gray-200 sm:block' />
+				<p className='text-sm text-gray-200'>Designed and developed by</p>
+				<a
+					href='https://mh-pourhasani.vercel.app/'
+					target='_blank'
+					rel='noopener noreferrer'
+					className='font-semibold text-white hover:text-sky-900'>
+					Mohammad Hasan Pourhasani
+				</a>
+			</section>
 
-			<NavLink
-				to='/cards'
-				onClick={() => setActiveNav('cartsPage')}
-				className={({ isActive }) =>
-					isActive
-						? 'relative flex items-center justify-center rounded-md bg-sky-900 px-2 py-1.5 text-white sm:py-1.5 sm:px-3'
-						: 'relative flex items-center justify-center px-2 py-1.5 opacity-60'
-				}>
-				{activeNav === 'cartsPage' ? <AiTwotoneShopping /> : <AiOutlineShopping />}
-				<p className='ml-1.5 text-sm'>Carts</p>
-				<span className='absolute -top-2 -right-2 flex h-5 w-5 items-center justify-center rounded-full bg-sky-700 text-xs '>
-					{card.length}
-				</span>
-			</NavLink>
-
-			<NavLink
-				to='/setting'
-				onClick={() => setActiveNav('setting')}
-				className={({ isActive }) =>
-					isActive
-						? 'flex items-center justify-center rounded-md bg-sky-900 px-2 py-1.5 text-white sm:py-1.5 sm:px-3'
-						: 'flex items-center justify-center opacity-60'
-				}>
-				{activeNav === 'setting' ? <AiTwotoneSetting /> : <AiOutlineSetting />}
-				<p className='ml-1.5 text-sm'>Setting</p>
-			</NavLink>
+			{/* go to top btn */}
+			<BsArrowUpSquare
+				onClick={() => goToTop()}
+				className='h-auto w-7 cursor-pointer text-gray-300 hover:text-gray-50 sm:w-9'
+			/>
 		</footer>
 	);
 };
