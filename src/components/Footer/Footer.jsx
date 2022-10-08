@@ -9,7 +9,7 @@ const Footer = () => {
 	};
 
 	return (
-		<footer className='mt-5 flex h-48 w-full flex-col items-center justify-start gap-4 bg-sky-500 px-2 py-3 sm:h-36 sm:flex-row sm:items-start sm:justify-between sm:p-5 md:fixed md:bottom-0 md:h-16 md:items-center xl:h-14'>
+		<footer className='mt-5 flex h-48 w-full flex-col items-center justify-start gap-4 bg-sky-500 px-2 py-3 sm:h-36 sm:flex-row sm:items-start sm:justify-between sm:p-5 md:h-16 md:items-center xl:h-14'>
 			{/* copyright section */}
 			<section className='flex flex-col items-center gap-1 sm:flex-row'>
 				<AiOutlineCopyrightCircle className='hidden h-auto w-5 text-gray-200 sm:block' />
