@@ -6,6 +6,7 @@ import SettingPage from './Pages/SettingPage';
 import ProductDetailPage from './Pages/ProductDetailPage';
 import ProfilePage from './Pages/ProfilePage';
 import CheckoutPage from './Pages/CheckoutPage';
+import NotFoundPage from './Pages/NotFoundPage';
 
 const routes = [
 	{ path: '/products/:id', component: ProductDetailPage },
@@ -15,6 +16,7 @@ const routes = [
 	{ path: '/carts', component: CartsPage },
 	{ path: '/profile', component: ProfilePage },
 	{ path: '/checkout', component: CheckoutPage },
+	{ path: '*', component: NotFoundPage },
 	{ path: '/', component: HomePage },
 ];
 
