@@ -12,7 +12,7 @@ import { BsCartCheckFill, BsCartPlus } from 'react-icons/bs';
 const ProductCardItem = ({ product }) => {
 	const { card } = useCard();
 	const dispatch = useCardActions();
-	const { name, brandLogo, price, images, offPrice } = product;
+	const { name, price, images, offPrice } = product;
 
 	// add products handler function
 	const addProductHandler = (product) => {
@@ -21,46 +21,55 @@ const ProductCardItem = ({ product }) => {
 	};
 
 	return (
-		<section className='flex w-full flex-col items-start justify-between rounded-md border-1 bg-white shadow-lg shadow-gray-200 hover:scale-105 hover:border-sky-500 hover:drop-shadow-xl'>
+		<section className='flex w-full flex-col items-start justify-between rounded-2xl bg-white shadow-xl shadow-gray-200 hover:shadow-2xl'>
 			{/* image of product and pass product data */}
-			<Link to={`products/${name}`} state={{ product: product }} className='hover:opacity-80'>
+			<Link
+				to={`products/${name}`}
+				state={{ product: product }}
+				className='aspect-square h-auto w-full'>
 				<img
 					src={images[0]}
 					alt={name}
 					loading='lazy'
-					className='h-auto w-full rounded-t-md'
+					className='h-auto w-full rounded-t-2xl rounded-b-3xl'
 				/>
 			</Link>
 
 			<section className='relative w-full p-1.5 md:px-2.5'>
-				{/* add product to cart btn */}
-				<button
-					onClick={() => addProductHandler(product)}
-					className='absolute -top-5 right-2 flex h-9 w-9 items-center justify-center rounded-md bg-sky-400 text-2xl text-white hover:bg-sky-500 md:h-10 md:w-10 md:text-2xl lg:h-11 lg:w-11'>
-					{checkInCard(card, product) ? <BsCartCheckFill /> : <BsCartPlus />}
-				</button>
-
 				{/* show name and price and offPrice product section */}
 				<section className='flex h-full flex-col items-start justify-between gap-1'>
 					{/* name of product and pass product data */}
 					<Link to={`products/${name}`} state={{ product: product }}>
-						<p className='text-lg font-semibold hover:text-gray-600 md:text-xl lg:text-xl'>
+						<p className='text-lg font-semibold hover:text-gray-600 md:text-xl lg:text-lg'>
 							{name}
 						</p>
 					</Link>
 
-					{/* show brand of product */}
-					<div className='flex h-6 items-center gap-2 rounded-md bg-sky-100 px-2 md:h-7'>
-						<p className='mr-2 text-xs font-semibold'>Brand:</p>
-						<img src={brandLogo} alt={name} className='h-6 md:h-7' />
-					</div>
-
 					{/* show price and off price of product */}
-					<section className='my-1 flex items-center gap-2 text-sm md:text-base'>
-						<p className='bg-gray-20 rounded-md bg-gray-200 py-1 px-1.5 text-gray-400 line-through'>
-							$ {price}
-						</p>
-						<p className='rounded-md bg-sky-200 py-1 px-1.5'>$ {offPrice}</p>
+					<section className='my-1 flex items-end justify-between gap-3 text-sm'>
+						<span className='w-14'>
+							<p className='rounded-md bg-gray-200 py-1 px-1.5 text-gray-400 line-through'>
+								$ {price}
+							</p>
+							<p className='font-medium'>$ {offPrice}</p>
+						</span>
+
+						{/* add product to cart btn */}
+						<button
+							onClick={() => addProductHandler(product)}
+							className='flex w-auto flex-1 items-center justify-center font-medium'>
+							{checkInCard(card, product) ? (
+								<span className='flex h-9 items-center gap-1.5 rounded-md bg-sky-500 px-3 text-white'>
+									<BsCartCheckFill className='h-auto lg:w-5' />
+									<p>Added to cart</p>
+								</span>
+							) : (
+								<span className='flex h-9 items-center gap-1.5 rounded-md border-1 px-3 transition-all delay-75 ease-in-out hover:bg-sky-500 hover:text-white'>
+									<BsCartPlus className='h-auto lg:w-5' />
+									<p>Add To Cart</p>
+								</span>
+							)}
+						</button>
 					</section>
 				</section>
 			</section>
